@@ -13,9 +13,13 @@ import javax.sql.DataSource;
 @Configuration
 @Import({NabHibernateProdConfig.class, NabProdConfig.class, CommonConfig.class})
 public class ProdConfig {
+  public static Integer greatPopularityValue;
 
   @Bean
   public DataSource dataSource(DataSourceFactory dataSourceFactory, FileSettings fileSettings) {
+    ProdConfig.greatPopularityValue = fileSettings.getInteger("greatPopularityValue");
     return dataSourceFactory.create("master", false, fileSettings);
   }
+
+
 }
