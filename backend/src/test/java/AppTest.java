@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import ru.hh.nab.starter.NabApplication;
@@ -20,6 +21,7 @@ public class AppTest extends NabTestBase {
   public void before() {}
 
   @Test
+//  @Ignore
   public void createUserAndCompanyTest() {
     Response response = createRequest("/")
             .buildGet()
